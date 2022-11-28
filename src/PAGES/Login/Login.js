@@ -10,6 +10,8 @@ const Login = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const from = location.state?.from?.pahtname || "/";
   const {
     register,
     formState: { errors },
@@ -22,6 +24,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error.message);
