@@ -2,8 +2,10 @@ import React from "react";
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../../Context/Firebase/Authprovider";
+import { useQuery } from "@tanstack/react-query";
 
 const Bookingmodal = ({ cars, setcars }) => {
+  const { refetch } = useQuery([]);
   const { user } = useContext(AuthContext);
   const handlebooking = (event) => {
     event.preventDefault();
@@ -37,7 +39,7 @@ const Bookingmodal = ({ cars, setcars }) => {
         if (data.acknowledged) {
           setcars(null);
           toast.success("Booking successfull");
-          // refetch();
+          refetch();
         } else {
           toast.error(data.message);
         }
