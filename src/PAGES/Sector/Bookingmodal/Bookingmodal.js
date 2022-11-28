@@ -22,7 +22,6 @@ const Bookingmodal = ({ cars, setcars }) => {
       name: cars.name,
       username: name,
       email,
-
       phone,
       price,
     };
