@@ -2,12 +2,14 @@ import React from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/Firebase/Authprovider";
 
 const Login = () => {
   const [loginerror, setLoginerror] = useState("");
   const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
   const {
     register,
     formState: { errors },

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/Firebase/Authprovider";
 
 const Signup = () => {
   const [signuperror, setsignuperror] = useState("");
-  const { signup } = useContext(AuthContext);
+  const { signup, updateUser } = useContext(AuthContext);
   const {
     register,
     formState: { errors },
@@ -15,12 +16,28 @@ const Signup = () => {
 
   const handlesignup = (data) => {
     console.log(data);
+    setsignuperror("");
     signup(data.email, data.password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        toast("user create successfully");
+        const userInfo = {
+          displayName: data.name,
+        };
+        updateUser(userInfo)
+          .then(() => {
+            // sakibuser(data.name, user.email);
+          })
+
+          .catch((error) => {
+            console.error(error);
+          });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setsignuperror(error.message);
+      });
   };
   return (
     <div className="h-[800px] flex justify-center items-center">
