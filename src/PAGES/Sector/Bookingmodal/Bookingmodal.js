@@ -1,5 +1,6 @@
 import React from "react";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 import { AuthContext } from "../../../Context/Firebase/Authprovider";
 
 const Bookingmodal = ({ cars, setcars }) => {
@@ -23,8 +24,25 @@ const Bookingmodal = ({ cars, setcars }) => {
       phone,
       price,
     };
-    console.log(booking);
-    setcars(null);
+    fetch("http://localhost:5000/booking", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          setcars(null);
+          toast.success("Booking successfull");
+          // refetch();
+        } else {
+          toast.error(data.message);
+        }
+        setcars(null);
+      });
   };
   return (
     <>
@@ -64,7 +82,13 @@ const Bookingmodal = ({ cars, setcars }) => {
             <span className="label-text text-xl font-semibold text-red-500">
               Price:
             </span>
-            <input name="price" type="text" disabled className="input w-full" />
+            <input
+              name="price"
+              defaultValue={cars.orginalprice}
+              type="text"
+              disabled
+              className="input w-full"
+            />
             <span className="label-text text-xl font-semibold text-red-500">
               User email:
             </span>
