@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/Firebase/Authprovider";
 
 const Signup = () => {
   const [signuperror, setsignuperror] = useState("");
   const { signup, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -28,6 +29,7 @@ const Signup = () => {
         updateUser(userInfo)
           .then(() => {
             // sakibuser(data.name, user.email);
+            navigate("/");
           })
 
           .catch((error) => {

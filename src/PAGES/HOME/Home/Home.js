@@ -1,17 +1,26 @@
 import React from "react";
-import { useEffect } from "react";
+
 import { useState } from "react";
 import CATAGORY from "../../Sector/CATAGORY";
+import Loading from "../../Shared/LOading/Loading";
 import Banner from "../Banner/Banner";
 import Testimonial from "../testimonials/Testimonial";
+import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {
-  const [items, setitems] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:5000/items")
-      .then((res) => res.json())
-      .then((data) => setitems(data));
-  }, []);
+  const {
+    data: items = [],
+    refetch,
+    isLoading,
+  } = useQuery({
+    queryKey: ["items"],
+    queryFn: async () =>
+      fetch("http://localhost:5000/items").then((res) => res.json()),
+  });
+  if (isLoading) {
+    return <Loading></Loading>;
+  }
+
   return (
     <div>
       <Banner></Banner>
@@ -22,7 +31,7 @@ const Home = () => {
       </div>
       <div className="mx-6 grid grid-cols-3 gap-6 mb-10">
         {items.map((item) => (
-          <CATAGORY key={item.id} item={item}></CATAGORY>
+          <CATAGORY key={item.id} item={item} refetch={refetch}></CATAGORY>
         ))}
       </div>
       <Testimonial></Testimonial>

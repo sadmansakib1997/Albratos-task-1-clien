@@ -1,6 +1,9 @@
 import React from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../../Context/Firebase/Authprovider";
 
 const Bookingmodal = ({ cars, setcars }) => {
+  const { user } = useContext(AuthContext);
   const handlebooking = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -53,7 +56,7 @@ const Bookingmodal = ({ cars, setcars }) => {
               name="name"
               type="text"
               disabled
-              defaultValue={cars.sellername}
+              defaultValue={user?.displayName}
               placeholder="Your name"
               className="input w-full"
             />
@@ -61,13 +64,7 @@ const Bookingmodal = ({ cars, setcars }) => {
             <span className="label-text text-xl font-semibold text-red-500">
               Price:
             </span>
-            <input
-              name="price"
-              type="text"
-              disabled
-              defaultValue={cars.orginalprice}
-              className="input w-full"
-            />
+            <input name="price" type="text" disabled className="input w-full" />
             <span className="label-text text-xl font-semibold text-red-500">
               User email:
             </span>
@@ -75,6 +72,7 @@ const Bookingmodal = ({ cars, setcars }) => {
               name="email"
               type="email"
               disabled
+              defaultValue={user?.email}
               placeholder="Your Email"
               className="input w-full"
             />
