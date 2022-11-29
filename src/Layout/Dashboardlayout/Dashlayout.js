@@ -22,7 +22,7 @@ const Dashlayout = () => {
               <Link to="/dash">MY ORDERS</Link>
             </li>
             <li>
-              <Link to="/users">ALL USERS</Link>
+              <Link to="/dash/users">ALL USERS</Link>
             </li>
 
             {/* {isAdmin && (
