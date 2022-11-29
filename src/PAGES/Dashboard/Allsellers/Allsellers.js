@@ -13,15 +13,12 @@ const Allsellers = () => {
   });
 
   const handledelete = (id) => {
-    fetch(
-      ` https://doctors-portal-server-three-kohl.vercel.app/users/admin/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          authorization: `bearer ${localStorage.getItem("accesstoken")}`,
-        },
-      }
-    )
+    fetch(` http://localhost:5000/users/admin/${id}`, {
+      method: "PUT",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accesstoken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -31,6 +28,23 @@ const Allsellers = () => {
         }
       });
   };
+
+  // const handleseller = (id) => {
+  //   fetch(` http://localhost:5000/users/seller/${id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       authorization: `bearer ${localStorage.getItem("accesstoken")}`,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       if (data.modifiedCount) {
+  //         toast.success("Synthia i love you");
+  //         refetch();
+  //       }
+  //     });
+  // };
 
   return (
     <div>
@@ -43,6 +57,7 @@ const Allsellers = () => {
               <th>Name</th>
               <th>Email</th>
               <th>Admin</th>
+              <th>Seller</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -53,7 +68,7 @@ const Allsellers = () => {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>
-                  {user.role !== "admin" && (
+                  {user?.role !== "admin" && (
                     <button
                       onClick={() => handledelete(user._id)}
                       className="btn btn-xs btn-primary"
@@ -62,6 +77,16 @@ const Allsellers = () => {
                     </button>
                   )}
                 </td>
+                {/* <td>
+                  {user.role !== "seller" && (
+                    <button
+                      onClick={() => handleseller(user._id)}
+                      className="btn btn-xs btn-primary"
+                    >
+                      Make Seller
+                    </button>
+                  )}
+                </td> */}
                 <td>
                   <button className="btn btn-xs btn-danger">Delete</button>
                 </td>

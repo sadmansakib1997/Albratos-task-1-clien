@@ -81,12 +81,12 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">{menuitems}</ul>
+        <ul className="menu menu-horizontal p-0 ">{menuitems}</ul>
       </div>
       <label
         htmlFor="dashboard-drawer"
         tabIndex={2}
-        className="btn btn-ghost lg:hidden"
+        className="btn btn-secondary lg:hidden"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
