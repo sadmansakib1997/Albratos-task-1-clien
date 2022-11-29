@@ -4,18 +4,23 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/Firebase/Authprovider";
+import UserToken from "../../Hooks/UserToken";
 
 const Signup = () => {
   const [signuperror, setsignuperror] = useState("");
   const { signup, updateUser } = useContext(AuthContext);
   const [createdemail, setcreatedEmail] = useState("");
-  // const [token] = useToken(createdemail);
+  const [token] = UserToken(createdemail);
   const navigate = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+
+  if (token) {
+    navigate("/");
+  }
 
   const handlesignup = (data) => {
     console.log(data);
@@ -32,7 +37,6 @@ const Signup = () => {
           .then(() => {
             // sakibuser(data.name, user.email);
             sakibuser(data.name, user.email);
-            navigate("/");
           })
 
           .catch((error) => {
@@ -57,8 +61,8 @@ const Signup = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log("save user:", data);
-        // setcreatedEmail(email);
-        // console.log({ setcreatedEmail: email });
+        setcreatedEmail(email);
+        console.log({ setcreatedEmail: email });
       });
   };
 
