@@ -8,6 +8,8 @@ import { AuthContext } from "../../Context/Firebase/Authprovider";
 const Signup = () => {
   const [signuperror, setsignuperror] = useState("");
   const { signup, updateUser } = useContext(AuthContext);
+  const [createdemail, setcreatedEmail] = useState("");
+  // const [token] = useToken(createdemail);
   const navigate = useNavigate();
   const {
     register,
@@ -29,6 +31,7 @@ const Signup = () => {
         updateUser(userInfo)
           .then(() => {
             // sakibuser(data.name, user.email);
+            sakibuser(data.name, user.email);
             navigate("/");
           })
 
@@ -41,6 +44,24 @@ const Signup = () => {
         setsignuperror(error.message);
       });
   };
+
+  const sakibuser = (name, email) => {
+    const user = { name, email };
+    fetch(" http://localhost:5000/users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("save user:", data);
+        // setcreatedEmail(email);
+        // console.log({ setcreatedEmail: email });
+      });
+  };
+
   return (
     <div className="h-[800px] flex justify-center items-center">
       <div className="w-96 bg-slate-700 p-8">
