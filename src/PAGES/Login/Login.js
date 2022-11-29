@@ -4,19 +4,27 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/Firebase/Authprovider";
+import UserToken from "../../Hooks/UserToken";
 
 const Login = () => {
   const [loginerror, setLoginerror] = useState("");
   const { login } = useContext(AuthContext);
+  const [loginuseremail, setloginuseremail] = useState("");
+  const [token] = UserToken(loginuseremail);
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location.state?.from?.pahtname || "/";
+
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+
+  if (token) {
+    navigate(from, { replace: true });
+  }
 
   const handlelogin = (data) => {
     console.log(data);
@@ -24,7 +32,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate(from, { replace: true });
+        setloginuseremail(data.email);
       })
       .catch((error) => {
         console.error(error.message);
