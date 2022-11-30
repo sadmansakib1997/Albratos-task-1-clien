@@ -8,7 +8,7 @@ import UserToken from "../../Hooks/UserToken";
 
 const Login = () => {
   const [loginerror, setLoginerror] = useState("");
-  const { login } = useContext(AuthContext);
+  const { login, google } = useContext(AuthContext);
   const [loginuseremail, setloginuseremail] = useState("");
   const [token] = UserToken(loginuseremail);
   const navigate = useNavigate();
@@ -38,6 +38,15 @@ const Login = () => {
         console.error(error.message);
         setLoginerror(error.message);
       });
+  };
+
+  const handlegooglesingin = () => {
+    google()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -108,7 +117,10 @@ const Login = () => {
           </Link>
         </p>
         <div className="divider text-white">OR</div>
-        <button className="btn btn-primary w-full font-bold">
+        <button
+          onClick={handlegooglesingin}
+          className="btn btn-primary w-full font-bold"
+        >
           CONTINUE WITH GOOGLE
         </button>
       </div>

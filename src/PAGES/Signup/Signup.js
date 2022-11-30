@@ -8,7 +8,7 @@ import UserToken from "../../Hooks/UserToken";
 
 const Signup = () => {
   const [signuperror, setsignuperror] = useState("");
-  const { signup, updateUser } = useContext(AuthContext);
+  const { signup, updateUser, google } = useContext(AuthContext);
   const [createdemail, setcreatedEmail] = useState("");
   const [token] = UserToken(createdemail);
   const navigate = useNavigate();
@@ -47,6 +47,15 @@ const Signup = () => {
         console.error(error);
         setsignuperror(error.message);
       });
+  };
+  /////////////////////////////////
+  const handlegooglesingin = () => {
+    google()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
   };
 
   const sakibuser = (name, email) => {
@@ -153,7 +162,10 @@ const Signup = () => {
           </Link>
         </p>
         <div className="divider text-white">OR</div>
-        <button className="btn btn-primary w-full font-bold">
+        <button
+          onClick={handlegooglesingin}
+          className="btn btn-primary w-full font-bold"
+        >
           CONTINUE WITH GOOGLE
         </button>
       </div>

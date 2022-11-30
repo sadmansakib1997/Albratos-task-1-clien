@@ -14,6 +14,7 @@ const Differntcata = ({ singleitem, setcars }) => {
           <p className=" text-xl">Resale Price:{singleitem.resale}</p>
           <p className=" text-xl">Time:{singleitem.time}</p>
           <p className=" text-xl">Years:{singleitem.years}</p>
+          <p className=" text-xl">price:{singleitem.price}</p>
           <h1 className=" text-xl">Seller Name: {singleitem.sellername}</h1>
           <div className="card-actions justify-end">
             <label
