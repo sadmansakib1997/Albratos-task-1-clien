@@ -21,8 +21,8 @@ const Dashlayout = () => {
         </div>
         <div className="drawer-side ">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 text-white text-base-content">
-            <li className="bg-black">
+          <ul className="menu p-4 w-80  text-base-content">
+            <li className="bg-black text-white">
               <Link to="/dash">MY ORDERS</Link>
             </li>
             {/* <li>
@@ -31,13 +31,13 @@ const Dashlayout = () => {
 
             {isAdmin && (
               <>
-                <li className="bg-black mt-2">
+                <li className="bg-black mt-2 text-white">
                   <Link to="/dash/users">All BUYERS</Link>
                 </li>
-                <li className="bg-black mt-2">
+                <li className="bg-black mt-2 text-white">
                   <Link to="/dash/doctor">Add Doctor</Link>
                 </li>
-                <li className="bg-black mt-2">
+                <li className="bg-black mt-2 text-white">
                   <Link to="/dash/managedoctor">Manage Doctor</Link>
                 </li>
               </>
