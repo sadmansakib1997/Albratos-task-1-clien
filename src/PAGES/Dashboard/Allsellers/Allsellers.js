@@ -1,8 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
+import Confirmmodal from "../../Shared/Confirmmodal/Confirmmodal";
 
 const Allsellers = () => {
+  const [deleteingproduct, setDeletingproduct] = useState(null);
+
+  const canclemodal = () => {
+    setDeletingproduct(null);
+  };
+  /////////////////////////////////////
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
@@ -11,7 +18,7 @@ const Allsellers = () => {
       return data;
     },
   });
-
+  /////////////////////////////////////
   const handledelete = (id) => {
     fetch(` http://localhost:5000/users/admin/${id}`, {
       method: "PUT",
@@ -45,10 +52,27 @@ const Allsellers = () => {
         }
       });
   };
+  /////////////////////////////////
+  const handledeleteproduct = (user) => {
+    console.log(user);
+    fetch(` http://localhost:5000/users/${user._id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          refetch();
+          toast.success(`Deleted ${user.name} successfully`);
+        }
+      });
+  };
 
   return (
     <div>
-      <h1>This all users</h1>
+      <h1 className="text-4xl font-bold text-center my-5">ALL USERS EMAIL:</h1>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>
@@ -73,7 +97,7 @@ const Allsellers = () => {
                       onClick={() => handledelete(user._id)}
                       className="btn btn-xs btn-primary"
                     >
-                      Make Admin
+                      Admin
                     </button>
                   )}
                 </td>
@@ -83,17 +107,35 @@ const Allsellers = () => {
                       onClick={() => handleseller(user._id)}
                       className="btn btn-xs btn-primary"
                     >
-                      Make Seller
+                      Seller
                     </button>
                   )}
                 </td>
                 <td>
-                  <button className="btn btn-xs btn-danger">Delete</button>
+                  <label
+                    onClick={() => setDeletingproduct(user)}
+                    htmlFor="confirmation-modal"
+                    className="btn btn-outline btn-sm btn-error mr-7"
+                  >
+                    Delete
+                  </label>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+      </div>
+      <div>
+        {deleteingproduct && (
+          <Confirmmodal
+            title={`Are you sure you want to delete`}
+            message={`if you delete ${deleteingproduct.name} it cant be undone`}
+            canclemodal={canclemodal}
+            successaction={handledeleteproduct}
+            successbtnName="delete"
+            modaldata={deleteingproduct}
+          ></Confirmmodal>
+        )}
       </div>
     </div>
   );

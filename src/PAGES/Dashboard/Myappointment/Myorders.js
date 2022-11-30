@@ -22,8 +22,10 @@ const Myorders = () => {
   });
 
   return (
-    <div>
-      <h1 className="mb-6">MY APPOINMENT</h1>
+    <div className="mb-5">
+      <h1 className="mb-6 text-3xl font-bold text-center my-5">
+        Buyers Bookings
+      </h1>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

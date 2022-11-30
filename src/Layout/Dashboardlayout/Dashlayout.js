@@ -2,11 +2,13 @@ import React, { useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../Context/Firebase/Authprovider";
 import Useadmin from "../../Hooks/Useadmin";
+import Useseller from "../../Hooks/Useseller";
 import Navbar from "../../PAGES/Shared/Navbar/Navbar";
 
 const Dashlayout = () => {
   const { user } = useContext(AuthContext);
   const [isAdmin] = Useadmin(user?.email);
+  const [isSeller] = Useseller(user?.email);
   return (
     <div>
       <Navbar></Navbar>
@@ -34,11 +36,25 @@ const Dashlayout = () => {
                 <li className="bg-black mt-2 text-white">
                   <Link to="/dash/users">All BUYERS</Link>
                 </li>
-                <li className="bg-black mt-2 text-white">
+                {/* <li className="bg-black mt-2 text-white">
                   <Link to="/dash/doctor">Add Doctor</Link>
                 </li>
                 <li className="bg-black mt-2 text-white">
                   <Link to="/dash/managedoctor">Manage Doctor</Link>
+                </li> */}
+              </>
+            )}
+
+            {isSeller && (
+              <>
+                {/* <li className="bg-black mt-2 text-white">
+                  <Link to="/dash/users">All BUYERS</Link>
+                </li> */}
+                <li className="bg-black mt-2 text-white">
+                  <Link to="/dash/addproduct">Add Product</Link>
+                </li>
+                <li className="bg-black mt-2 text-white">
+                  <Link to="/dash/myproduct">My Product</Link>
                 </li>
               </>
             )}
