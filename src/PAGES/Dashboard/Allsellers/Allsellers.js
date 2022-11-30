@@ -29,22 +29,22 @@ const Allsellers = () => {
       });
   };
 
-  // const handleseller = (id) => {
-  //   fetch(` http://localhost:5000/users/seller/${id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       authorization: `bearer ${localStorage.getItem("accesstoken")}`,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       if (data.modifiedCount) {
-  //         toast.success("Synthia i love you");
-  //         refetch();
-  //       }
-  //     });
-  // };
+  const handleseller = (id) => {
+    fetch(` http://localhost:5000/users/seller/${id}`, {
+      method: "PUT",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          toast.success("Synthia i love you");
+          refetch();
+        }
+      });
+  };
 
   return (
     <div>
@@ -77,7 +77,7 @@ const Allsellers = () => {
                     </button>
                   )}
                 </td>
-                {/* <td>
+                <td>
                   {user.role !== "seller" && (
                     <button
                       onClick={() => handleseller(user._id)}
@@ -86,7 +86,7 @@ const Allsellers = () => {
                       Make Seller
                     </button>
                   )}
-                </td> */}
+                </td>
                 <td>
                   <button className="btn btn-xs btn-danger">Delete</button>
                 </td>
