@@ -15,6 +15,7 @@ import CATAGORY from "../../PAGES/Sector/CATAGORY";
 import Catagoryitem from "../../PAGES/Sector/Catagoryitem";
 import Errorpage from "../../PAGES/Shared/Errorpage";
 import Signup from "../../PAGES/Signup/Signup";
+import Adminprivateroute from "../Adminprivateroute";
 import Privateroute from "../Pirvateroute/Privateroute";
 
 export const router = createBrowserRouter([
@@ -49,9 +50,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/catagory/:id",
-        element: <Catagoryitem></Catagoryitem>,
+        element: (
+          <Privateroute>
+            <Catagoryitem></Catagoryitem>
+          </Privateroute>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/catagory/${params.id}`),
+          fetch(
+            `https://last-assignment-server-eta.vercel.app/catagory/${params.id}`
+          ),
       },
     ],
   },
@@ -70,7 +77,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dash/users",
-        element: <Allsellers></Allsellers>,
+        element: (
+          <Adminprivateroute>
+            <Allsellers></Allsellers>
+          </Adminprivateroute>
+        ),
       },
       {
         path: "/dash/addproduct",
@@ -85,7 +96,9 @@ export const router = createBrowserRouter([
         path: "/dash/payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/booking/${params.id}`),
+          fetch(
+            `https://last-assignment-server-eta.vercel.app/booking/${params.id}`
+          ),
       },
     ],
   },

@@ -25,7 +25,7 @@ const Bookingmodal = ({ cars, setcars }) => {
       phone,
       price,
     };
-    fetch("http://localhost:5000/booking", {
+    fetch("https://last-assignment-server-eta.vercel.app/booking", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -85,7 +85,7 @@ const Bookingmodal = ({ cars, setcars }) => {
             </span>
             <input
               name="price"
-              defaultValue={cars.orginalprice}
+              defaultValue={cars.price}
               type="text"
               disabled
               className="input w-full"

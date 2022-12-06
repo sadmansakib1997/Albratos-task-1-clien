@@ -6,7 +6,7 @@ import { async } from "@firebase/util";
 
 const Myorders = () => {
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/booking?email=${user?.email}`;
+  const url = `https://last-assignment-server-eta.vercel.app/booking?email=${user?.email}`;
 
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings", user?.email],

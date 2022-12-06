@@ -15,14 +15,17 @@ const Checkoutform = ({ booking }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch(" http://localhost:5000/create-payment-intent", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-      body: JSON.stringify({ price }),
-    })
+    fetch(
+      "https://last-assignment-server-eta.vercel.app/create-payment-intent",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify({ price }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
   }, [price]);
@@ -78,7 +81,7 @@ const Checkoutform = ({ booking }) => {
       setTransictionID(paymentIntent.id);
       navigate("/dash");
 
-      fetch("http://localhost:5000/payment", {
+      fetch("https://last-assignment-server-eta.vercel.app/payment", {
         method: "POST",
         headers: {
           "content-type": "application/json",

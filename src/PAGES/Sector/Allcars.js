@@ -6,7 +6,7 @@ import Allcar from "./Allcar";
 const Allcars = () => {
   const [allcars, setallcars] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/catagories")
+    fetch("https://last-assignment-server-eta.vercel.app/catagories")
       .then((res) => res.json())
       .then((data) => setallcars(data));
   }, []);

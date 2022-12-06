@@ -15,7 +15,9 @@ const Home = () => {
   } = useQuery({
     queryKey: ["items"],
     queryFn: async () =>
-      fetch("http://localhost:5000/items").then((res) => res.json()),
+      fetch("https://last-assignment-server-eta.vercel.app/items").then((res) =>
+        res.json()
+      ),
   });
   if (isLoading) {
     return <Loading></Loading>;

@@ -18,7 +18,9 @@ const Addproduct = () => {
   const { data: products, isLoading } = useQuery({
     queryKey: ["product"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/product");
+      const res = await fetch(
+        "https://last-assignment-server-eta.vercel.app/product"
+      );
       const data = await res.json();
       return data;
     },
@@ -45,7 +47,7 @@ const Addproduct = () => {
             photo: imgdata.data.url,
           };
 
-          fetch(" http://localhost:5000/products", {
+          fetch("https://last-assignment-server-eta.vercel.app/products", {
             method: "POST",
             headers: {
               "content-type": "application/json",

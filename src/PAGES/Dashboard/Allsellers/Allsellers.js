@@ -13,14 +13,16 @@ const Allsellers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/users");
+      const res = await fetch(
+        "https://last-assignment-server-eta.vercel.app/users"
+      );
       const data = await res.json();
       return data;
     },
   });
   /////////////////////////////////////
   const handledelete = (id) => {
-    fetch(` http://localhost:5000/users/admin/${id}`, {
+    fetch(`https://last-assignment-server-eta.vercel.app/users/admin/${id}`, {
       method: "PUT",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -37,7 +39,7 @@ const Allsellers = () => {
   };
 
   const handleseller = (id) => {
-    fetch(` http://localhost:5000/users/seller/${id}`, {
+    fetch(`https://last-assignment-server-eta.vercel.app/users/seller/${id}`, {
       method: "PUT",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -55,7 +57,7 @@ const Allsellers = () => {
   /////////////////////////////////
   const handledeleteproduct = (user) => {
     console.log(user);
-    fetch(` http://localhost:5000/users/${user._id}`, {
+    fetch(`https://last-assignment-server-eta.vercel.app/users/${user._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
