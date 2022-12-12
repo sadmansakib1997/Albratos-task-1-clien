@@ -188,3 +188,21 @@ ul{
 .job-title{
     color: var(--skin-color);
 }
+
+@media (max-width:1119px){
+    .left{
+        left: -270px;
+    }
+    .right{
+        padding-left: 0;
+    }
+}
+@media (max-width:991px){
+    .home .home-info{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .home .home-img{
+        display: none;
+    }
+}

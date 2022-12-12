@@ -78,7 +78,7 @@ const Side = () => {
         </ul>
       </div>
 
-      <div className="right display">
+      <div className="right ">
         <div className="midle">
           <div className="home">
             <div className="container">

@@ -1,0 +1,127 @@
+.contact{
+    padding-left: 270px;
+    
+}
+
+.mee{
+    background: var(--bg-black-900);
+    display: block;
+    opacity: 1;
+    padding-left:  30px;
+    padding-right: 30px;
+    padding-bottom: 100px;
+    
+}
+.container{
+    max-width: 1024px;
+   width: 100%;
+    margin: auto;
+    display: flex;
+    padding-bottom: 50px;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+    position: relative;
+}
+.padd-15{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.c-title{
+    color: var(--skin-color);
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.c-sub{
+    color: var(--text-black-900);
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+}
+.cow{
+    padding-bottom: 60px;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.cow .c-info-item{
+    flex: 0 0 25%;
+    max-width: 25%;
+    text-align: center;
+    margin-bottom: 60px;
+}
+.c-info-item .c-icon{
+    display: inline-block
+
+}
+.c-info-item .c-icon{
+    font-size: 30px;
+   
+}
+.c-icon span{
+   
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--skin-color);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 50%;
+    color: black;
+    transition: all 0.5s ease;
+}
+.c-icon span:hover{
+    background-color: rgb(0, 0, 0);
+    color: var(--skin-color)
+
+}
+.c-info-item h1{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-black-900);
+    text-transform: capitalize;
+    margin: 15px 0 5px;
+}
+.c-info-item p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: var(--text-black-700);
+}
+.ee{
+    flex: 0 0 45%;
+    max-width: 45%;
+    margin-right: 20px;
+}
+@media (max-width:1119px){
+    .left{
+        left: -270px;
+    }
+    .contact{
+        padding-left: 0;
+    }
+}
+@media (max-width:991px){
+    .cow{
+        display: flex;
+        flex: 0 0 100%;
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40px;
+        margin-bottom: 50px;
+    }
+   .cow .c-info-item{
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: center;
+    margin-bottom: 60px;
+   }
+}

@@ -1,5 +1,6 @@
 .skill{
     padding-left: 270px;
+    
 }
 .me{
     background: var(--bg-black-900);
@@ -21,18 +22,11 @@
     margin-right: -15px;
     position: relative;
 }
-.container .row{
-
-}
 .padd-15{
     padding-left: 15px;
     padding-right: 15px;
 }
-.text-center{
-    color: var(--text-black-900);
-    font-size: 40px;
-    font-weight: 700;
-}
+
 .progress{
     color: var(--text-black-900);
     margin-bottom: 30px;
@@ -48,7 +42,7 @@
     flex: 0 0 40%;
     max-width: 40%;
     margin-top: 40px;
-    margin-right: 50px;
+    margin-right: 70px;
    
 }
 
@@ -99,4 +93,43 @@
     max-width: 100%;
     margin-bottom: 30px;
    
+}
+
+.sakib-text{
+    color: var(--text-black-900);
+    font-size: 40px;
+    font-weight: 700;
+    position: relative;
+    text-align: left;
+    margin-bottom: 40px;
+}
+.sakib-text::before{
+    content: '';
+    height: 4px;
+    width: 50px;
+    background-color: var(--skin-color);
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+}
+.sakib-text::after{
+    content: '';
+    height: 4px;
+    width: 25px;
+    background-color: var(--skin-color);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px;
+
+}
+
+@media (max-width:1119px){
+    .left{
+        left: -270px;
+    }
+    .skill{
+        padding-left: 0;
+    }
 }

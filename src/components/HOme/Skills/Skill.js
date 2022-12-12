@@ -5,9 +5,9 @@ const Skill = () => {
   return (
     <div className="skill">
       <div className="me">
-        <h1 className="text-center">MY Skills</h1>
-        <div className="container pt-10 pb-10">
-          <div className="skills">
+        <h1 className="sakib-text pt-20">MY Skills</h1>
+        <div className="container">
+          <div className="skills ">
             <div className="row ">
               <div className="skill-item padd-15 ">
                 <h1>CSS</h1>

@@ -96,6 +96,7 @@
     background-color: black;
     border: 1px solid black;
     border-radius: 50%;
+    transition: all 0.5s ease;
 }
 .yo .item li:hover{
     background-color: var(--skin-color);
@@ -108,4 +109,13 @@
 }
 .yo .item li a:hover{
     color: black;
+}
+
+@media (max-width:1119px){
+    .left{
+        left: -270px;
+    }
+    .About{
+        padding-left: 0;
+    }
 }
