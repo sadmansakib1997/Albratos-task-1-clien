@@ -5,9 +5,10 @@ import { FaMobileAlt, FaLaptopCode, FaPalette } from "react-icons/fa";
 const Service = () => {
   return (
     <div className="services">
-      <div className="me">
-        <h1 className="txt ">Service</h1>
+      <div className="mee">
+        {/* <h1 className="txt ">Services</h1> */}
         <div className="contain">
+          <h1 className="txt ">Services</h1>
           <div className="row"></div>
           <div className="total">
             <div className="second ">

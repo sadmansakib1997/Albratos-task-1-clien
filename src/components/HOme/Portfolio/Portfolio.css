@@ -1,5 +1,5 @@
 .portfolio{
-    padding-left: 270px;
+    padding-left: 0px;
     
 }
 .me{
@@ -54,7 +54,7 @@
     transition: all 0.3s ease;
 }
 .card:hover{
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 20px rgb(255, 255, 255);
 }
 
   

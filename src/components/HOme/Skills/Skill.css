@@ -1,5 +1,5 @@
 .skill{
-    padding-left: 270px;
+    padding-left: 0px;
     
 }
 .me{
@@ -13,6 +13,10 @@
     max-width: 1024px;
    width: 100%;
     margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.part{
     display: flex;
 }
 .row{

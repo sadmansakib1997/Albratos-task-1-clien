@@ -1,9 +1,9 @@
 .contact{
-    padding-left: 270px;
+    padding-left: 0px;
     
 }
 
-.mee{
+.mea{
     background: var(--bg-black-900);
     display: block;
     opacity: 1;
@@ -17,6 +17,7 @@
    width: 100%;
     margin: auto;
     display: flex;
+    flex-wrap: wrap;
     padding-bottom: 50px;
 }
 .row{
@@ -72,15 +73,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--skin-color);
+    background-color: rgb(255, 255, 255);
     border: 1px solid rgb(0, 0, 0);
     border-radius: 50%;
-    color: black;
+    color: var(--skin-color);
     transition: all 0.5s ease;
 }
 .c-icon span:hover{
-    background-color: rgb(0, 0, 0);
-    color: var(--skin-color)
+    background-color:  var(--skin-color);
+    color:white;
 
 }
 .c-info-item h1{
@@ -95,6 +96,19 @@
     font-weight: 400;
     line-height: 25px;
     color: var(--text-black-700);
+}
+.client-form{
+    max-width: 1024px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+  
+}
+.mago{
+    width: 100%;
+}
+.ro{
+    
 }
 .ee{
     flex: 0 0 45%;

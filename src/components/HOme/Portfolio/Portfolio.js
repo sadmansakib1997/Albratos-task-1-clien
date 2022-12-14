@@ -7,11 +7,11 @@ import img3 from "../../images/fantastic-sprinkles-c2ef54.netlify.app_quiz_1.png
 const Portfolio = () => {
   return (
     <div className="portfolio">
-      <div className="me">
-        <h1 className="txt ">Portfolio</h1>
+      <div className="mee">
         <div className="container">
           <div className="row">
-            <div className="heading padd-15">
+            <h1 className="txt ">Portfolio</h1>
+            <div className="heading">
               <h1>My Last Projects:</h1>
             </div>
             <div className="oow">
@@ -45,7 +45,7 @@ const Portfolio = () => {
                 </div>
               </div>
               <div className="portfolio-item">
-                <div className="card bg-base-100 shadow-xl">
+                <div className="card h-full bg-base-100 shadow-xl">
                   <figure className="px-3 pt-5">
                     <img
                       src={img1}

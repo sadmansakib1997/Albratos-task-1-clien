@@ -15,7 +15,7 @@ import About from "../About/About";
 const Side = () => {
   return (
     <div>
-      <div className="left">
+      {/* <div className="left">
         <div className="logo">
           <a href="#">
             <span>M.T.N</span> Sakib
@@ -76,7 +76,7 @@ const Side = () => {
             </a>
           </li>
         </ul>
-      </div>
+      </div> */}
 
       <div className="right ">
         <div className="midle">

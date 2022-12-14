@@ -1,0 +1,12 @@
+.sakib{
+    font-family: 'Clicker Script', cursive;
+    font-size: 40px;
+    font-weight: 700;
+}
+.navbar{
+    max-width: 1024px;
+    display: flex;
+    margin: auto;
+   border-radius: 10px;
+   
+}

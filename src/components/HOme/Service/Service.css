@@ -1,20 +1,24 @@
 .services{
-    padding-left: 270px;
+    padding-left: 0px;
+   
+
     
 }
-.me{
+.mee{
     background: var(--bg-black-900);
   
     display: block;
     opacity: 1;
     padding: 0px 30px;
 }
+
 .contain{
     max-width: 1024px;
    width: 100%;
     margin: auto;
     display: flex;
     padding-bottom: 50px;
+    flex-wrap: wrap;
 }
 
 
@@ -41,6 +45,9 @@
 .padd-15{
     padding-left: 15px;
     padding-right: 15px;
+}
+.yy{
+    padding: 0px 30px;
 }
 .txt{
     padding-top: 30px;
@@ -108,20 +115,20 @@
     transition: all 0.3s ease;
 }
 .service-item .sevice-inner:hover{
-    box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+    box-shadow: 0 0 20px rgb(255, 255, 255);
     
 }
 .service-item .sevice-inner h1{
     font-size: 19px;
     margin-bottom: 15px;
-    color: var(--text-black-900);
+    color: black;
     font-weight: 700;
     text-transform: capitalize;
 }
 .service-item .sevice-inner p{
     font-size: 16px;
     line-height: 25px;
-    color: var(--text-black-700);
+    color: black;
 }
 
 @media (max-width:1119px){

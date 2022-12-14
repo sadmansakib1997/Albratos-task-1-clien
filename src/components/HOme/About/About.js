@@ -31,31 +31,31 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="yo">
-            <ul className="item display flex justify-center mt-10 mb-10">
-              <li>
-                <a href="https://www.facebook.com/">
-                  <span>
-                    <FaFacebookF />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/m-t-n-sakib-40ab3b259/">
-                  <span>
-                    <FaLinkedinIn />
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/sadmansakib1997">
-                  <span>
-                    <FaGithub />
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
+        </div>
+        <div className="yo">
+          <ul className="item display flex justify-center mt-10 mb-10">
+            <li>
+              <a href="https://www.facebook.com/">
+                <span>
+                  <FaFacebookF />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/m-t-n-sakib-40ab3b259/">
+                <span>
+                  <FaLinkedinIn />
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/sadmansakib1997">
+                <span>
+                  <FaGithub />
+                </span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

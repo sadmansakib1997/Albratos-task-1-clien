@@ -1,4 +1,4 @@
-.left{
+/* .left{
   
     background: var(--bg-black-100);
     width: 270px;
@@ -105,9 +105,9 @@ ul{
     display: inline-block;
 
 
-}
+} */
 .right{
-    padding-left: 270px;
+    padding-left: 0px;
 }
 .midle{
     background: var(--bg-black-900);
@@ -119,7 +119,7 @@ ul{
 .container{
     max-width: 1024px;
    width: 100%;
-    margin: auto;
+   
 }
 .row{
     display: flex;
