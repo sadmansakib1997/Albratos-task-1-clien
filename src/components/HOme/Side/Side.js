@@ -1,5 +1,7 @@
 import React from "react";
 import "./Side.css";
+import TypeWriterEffect from "react-typewriter-effect";
+import Typewriter from "typewriter-effect";
 import {
   FaHome,
   FaUserAlt,
@@ -15,81 +17,36 @@ import About from "../About/About";
 const Side = () => {
   return (
     <div>
-      {/* <div className="left">
-        <div className="logo">
-          <a href="#">
-            <span>M.T.N</span> Sakib
-          </a>
-        </div>
-        <div className="toggle">
-          <span>
-            <FaBars />
-          </span>
-        </div>
-        <ul className="nav">
-          <li>
-            <a href="#" className="first">
-              <span>
-                <FaHome />
-              </span>
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <span>
-                {" "}
-                <FaUserAlt />
-              </span>
-              About
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <span>
-                {" "}
-                <FaList />
-              </span>
-              Services
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <span>
-                {" "}
-                <FaBriefcase />
-              </span>
-              Portfolio
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <span>
-                {" "}
-                <FaComments />
-              </span>
-              Contact
-            </a>
-          </li>
-        </ul>
-      </div> */}
-
       <div className="right ">
         <div className="midle">
           <div className="home">
             <div className="container">
               <div className="row">
                 <div className="home-info padd-15">
-                  <h3 className="text-3xl my-4 font-bold">
-                    Hello, My Name Is <span className="name">M.T.N Sakib</span>
+                  <h3 className="text-3xl display flex my-4 font-bold">
+                    Hello, My Name Is{" "}
+                    <span className="name ml-2">
+                      {" "}
+                      <Typewriter
+                        options={{
+                          strings: ["M.T.N Sakib"],
+                          autoStart: true,
+                          loop: true,
+                        }}
+                      />
+                    </span>
                   </h3>
-                  <h3 className="job text-3xl my-7 font-bold">
+                  <h3 className="job display flex text-3xl my-7 font-bold">
                     I'm a{" "}
-                    <span className="job-title">Frontend Webdeveloper</span>
+                    <span className="job-title ml-2">
+                      <Typewriter
+                        options={{
+                          strings: ["Frontend Webdeveloper"],
+                          autoStart: true,
+                          loop: true,
+                        }}
+                      />
+                    </span>
                   </h3>
                   <p className="mb-16 text-xl">
                     {" "}

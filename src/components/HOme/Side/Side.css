@@ -182,7 +182,7 @@ ul{
     letter-spacing: 2px;
     font-family: 'Clicker Script', cursive;
     font-size: 42px;
-    color: var(--skin-color);
+    color: rgb(255, 77, 0);
     font-weight: 700;
 }
 .job-title{
