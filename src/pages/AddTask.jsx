@@ -1,69 +1,65 @@
+import React from 'react';
+
+import { useForm } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { set, useForm } from "react-hook-form";
-import Addingtask from "./Addingtask";
+import AddingTask from './AddingTask';
 
-const Addtask = () => {
-  const [alltasks, setalltask] = useState([]);
-  const {
-    register,
-    // handleSubmit,
-    reset,
 
-    formState: { errors },
-  } = useForm();
+const AddTask = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const task = form.task.value;
+    
+        const addtask = {
+            task: task,
+            image:"",
+            status:false,
+        };
+        fetch("https://albratoss-server-side-1.vercel.app/Alltask", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(addtask),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            refetch();
+    
+            reset();
+            console.log(data);
+          });
+      };
 
-  const {
-    data = [],
-    refetch,
-    isLoading,
-  } = useQuery({
-    queryKey: [],
-    queryFn: async () => {
-      const res = await fetch(
-        "https://albratoss-server-side-1.vercel.app/Alltask"
-      );
 
-      const data = await res.json();
-      return data;
-    },
-  });
-
-  // useEffect(() => {
-  //   fetch("https://albratoss-server-side-1.vercel.app/Alltask")
-  //     .then((res) => res.json())
-  //     .then((data) => setalltask(data));
-  // }, []);
-
-  /////////////
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const task = form.task.value;
-
-    const addtask = {
-      taskname: task,
-    };
-    console.log(task);
-    fetch("https://albratoss-server-side-1.vercel.app/Alltask", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(addtask),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        refetch();
-
-        reset();
-        console.log(data);
+    const {
+        register,
+        // handleSubmit,
+        reset,
+    
+        formState: { errors },
+      } = useForm();
+    
+      const {
+        data = [],
+        refetch,
+        isLoading,
+      } = useQuery({
+        queryKey: [],
+        queryFn: async () => {
+          const res = await fetch(
+            "https://albratoss-server-side-1.vercel.app/Alltask"
+          );
+    
+          const data = await res.json();
+          return data;
+        },
       });
-  };
 
-  return (
-    <div className="mb-10">
+    
+    return (
+        <div className="mb-10">
       <h1 className="text-center mt-20 mb-10 text-5xl font-bold text-fuchsia-700">
         ADD TASK
       </h1>
@@ -96,11 +92,12 @@ const Addtask = () => {
       </div>
       <div className="">
         {data?.map((alltask) => (
-          <Addingtask key={alltask._id} alltask={alltask}></Addingtask>
+          <AddingTask key={alltask._id} alltask={alltask}></AddingTask>
+
         ))}
       </div>
     </div>
-  );
+    );
 };
 
-export default Addtask;
+export default AddTask;

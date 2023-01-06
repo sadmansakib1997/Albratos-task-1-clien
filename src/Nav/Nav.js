@@ -9,12 +9,10 @@ const Nav = () => {
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
-              <a href="javascript:void(0)">
-                <Link to={"/"}>
-                  {" "}
-                  <h2 className="text-2xl font-bold">JUST TRY</h2>
-                </Link>
-              </a>
+              <Link to={"/"}>
+                <h2 className="text-2xl font-bold">JUST TRY</h2>
+              </Link>
+
               <div className="md:hidden">
                 <button
                   className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -61,21 +59,13 @@ const Nav = () => {
             >
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                 <li className="text-black font-bold hover:text-red-600">
-                  <Link to={"/addtask"}>
-                    <a href="javascript:void(0)">Add Task</a>
-                  </Link>
+                  <Link to={"/addtask"}>Add task</Link>
                 </li>
                 <li className="text-black font-bold hover:text-red-600">
-                  <Link to={"/mytask"}>
-                    {" "}
-                    <a href="javascript:void(0)">My Task</a>
-                  </Link>
+                  <Link to={"/mytask"}> My task</Link>
                 </li>
                 <li className="text-black font-bold hover:text-red-600">
-                  <Link to={"/comtask"}>
-                    {" "}
-                    <a href="javascript:void(0)">Compeleted Task</a>
-                  </Link>
+                  <Link to={"/comtask"}> Compeleted task</Link>
                 </li>
               </ul>
             </div>

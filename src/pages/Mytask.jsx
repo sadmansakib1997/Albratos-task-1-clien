@@ -17,7 +17,10 @@ const Mytask = () => {
       const data = await res.json();
       return data;
     },
+
   });
+const mytasssk = data.filter(rony => rony.status === false)
+
 
   const deletetask = (Alltask) => {
     console.log(Alltask);
@@ -35,7 +38,7 @@ const Mytask = () => {
 
   return (
     <>
-      {data.map((alltask) => (
+      {mytasssk.map((alltask) => (
         <div className=" flex justify-center ">
           <div class="bg-gray-800 pt-4  w-full flex gap-8 items-center justify-center">
             <a
@@ -46,7 +49,7 @@ const Mytask = () => {
 
               <div class="col-span-11 xl:-ml-5">
                 <p class="text-blue-600 font-semibold text-xl text-center">
-                  {alltask.taskname}
+                  {alltask.task}
                 </p>
               </div>
             </a>

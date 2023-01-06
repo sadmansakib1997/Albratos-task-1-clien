@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import Addtask from "../Addtask/Addtask";
+import AddTask from "../AddTask";
 import Compeletedtask from "../Compeletedtask/Compeletedtask";
 import Main from "../layout/Main";
-import Mytask from "../Mytask/Mytask";
-import Updatetask from "../Mytask/Updatetask";
+import Mytask from "../Mytask";
+import Updatetask from "./Updatetask";
+// import Updatetask from "../Mytask/Updatetask";
+// import Addtask from "../Addtask/Addtask";
+// import Mytask from "../Mytask/Mytask";
 
 export const router = createBrowserRouter([
   {
@@ -12,7 +15,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/addtask",
-        element: <Addtask></Addtask>,
+        element: <AddTask />,
       },
       {
         path: "/mytask",
